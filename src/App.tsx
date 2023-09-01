@@ -1,26 +1,69 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import {
+  Card,
+  Grid,
+  Title,
+  Text,
+  Tab,
+  TabList,
+  TabGroup,
+  TabPanel,
+  TabPanels,
+} from "@tremor/react";
+import { Analysis } from "./Analysis/Analysis";
+import { Result } from "./Result/Result";
+import { AnalysisWPeriode } from "./AnalysisWPeriode/AnalysisWPeriode";
+import { AnalysisWthoutPeriode } from "./AnalysisWthoutPeriode/AnalysisWthoutPeriode";
+import { TrainData } from "./TrainData/TrainData";
 
-function App() {
+export const App=()=> {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <main>
+      <TabGroup className="mt-6">
+        <TabList>
+          <Tab>Analysis</Tab>
+          <Tab>Result</Tab>
+          <Tab>Analyse with Periode</Tab>
+          <Tab>Analyse without Periode</Tab>
+          <Tab>Trained Data</Tab>
+        </TabList>
+        <TabPanels>
+        <TabPanel>
+            <div className="mt-6">
+              <Card>
+                <Analysis/>
+              </Card>
+            </div>
+          </TabPanel>
+          <TabPanel>
+            <div className="mt-6">
+              <Card>
+                <Result/>
+              </Card>
+            </div>
+          </TabPanel>
+          <TabPanel>
+            <div className="mt-6">
+              <Card>
+                <AnalysisWPeriode/>
+              </Card>
+            </div>
+          </TabPanel>
+          <TabPanel>
+            <div className="mt-6">
+              <Card>
+                <AnalysisWthoutPeriode/>
+              </Card>
+            </div>
+          </TabPanel>
+          <TabPanel>
+            <div className="mt-6">
+              <Card>
+                <TrainData/>
+              </Card>
+            </div>
+          </TabPanel>
+        </TabPanels>
+      </TabGroup>
+    </main>
   );
 }
-
-export default App;
